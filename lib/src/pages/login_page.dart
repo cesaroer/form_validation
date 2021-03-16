@@ -7,6 +7,7 @@ class LoginPage extends StatelessWidget {
       body: Stack(
         children: [
           crearFondo(context),
+          _loginForm(context),
         ],
       ),
     );
@@ -67,6 +68,98 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _loginForm(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SafeArea(
+            child: Container(
+              height: 180.0,
+            ),
+          ),
+          Container(
+            width: size.width * 0.85,
+            padding: EdgeInsets.symmetric(vertical: 50.0),
+            margin: EdgeInsets.symmetric(vertical: 30.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15.0),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 3.0,
+                    offset: Offset(0.0, 5.0),
+                    spreadRadius: 3.0),
+              ],
+            ),
+            child: Column(
+              children: [
+                Text("Ingreso", style: TextStyle(fontSize: 20.0)),
+                SizedBox(height: 60.0),
+                crearEmail(),
+                SizedBox(height: 30.0),
+                crearPassword(),
+                SizedBox(height: 30.0),
+                crearBoton(),
+              ],
+            ),
+          ),
+          SizedBox(height: 100.0),
+          Text("¿Olvido la contraseña"),
+          SizedBox(height: 100.0),
+        ],
+      ),
+    );
+  }
+
+  Widget crearEmail() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: TextField(
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+          icon: Icon(Icons.alternate_email, color: Colors.deepPurple),
+          hintText: "ejemplo@correo.com",
+          labelText: "Correo electrónico",
+        ),
+      ),
+    );
+  }
+
+  Widget crearPassword() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: TextField(
+        obscureText: true,
+        decoration: InputDecoration(
+          icon: Icon(Icons.lock, color: Colors.deepPurple),
+          labelText: "Contraseña",
+        ),
+      ),
+    );
+  }
+
+  Widget crearBoton() {
+    return RaisedButton(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
+        child: Text(
+          "Ingresar",
+          style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w800),
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 0.0,
+      color: Colors.deepPurple,
+      textColor: Colors.white,
+      onPressed: () {},
     );
   }
 }
