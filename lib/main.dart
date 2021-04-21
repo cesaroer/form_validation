@@ -10,14 +10,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Material App',
-        initialRoute: "login",
-        routes: {
-          "login": (BuildContext context) => LoginPage(),
-          "home": (BuildContext context) => HomePage(),
-        },
-      ),
+          debugShowCheckedModeBanner: false,
+          title: 'Material App',
+          initialRoute: "login",
+          routes: {
+            "login": (BuildContext context) => LoginPage(),
+            "home": (BuildContext context) => HomePage(),
+          },
+          theme: ThemeData(
+            primaryColor: Colors.deepPurple,
+          )),
     );
   }
 }
